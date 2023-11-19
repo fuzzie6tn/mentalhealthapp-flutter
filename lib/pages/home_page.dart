@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentalhealthapp/util/emoticon_faces.dart';
+import 'package:mentalhealthapp/util/exercise_title.dart';
 // import '../util/emoticon_faces.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,8 +17,9 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.message_sharp), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_3_rounded), label: ''),
         ],
       ),
       body: SafeArea(
@@ -216,47 +218,35 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 20,
                       ),
+
                       // listview of exercise
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite_rounded,
-                              color: Colors.grey[600],
+                      Expanded(
+                        child: ListView(
+                          children: const [
+                            ExerciseTile(
+                              icon: Icons.favorite_rounded,
+                              exerciseName: 'Speaking Skills',
+                              numberOfExercises: 15,
+                              color: Colors.orange,
                             ),
-                            const SizedBox(
-                              width: 12,
+                            ExerciseTile(
+                              icon: Icons.person,
+                              exerciseName: 'Reading Skills',
+                              numberOfExercises: 8,
+                              color: Colors.blue,
                             ),
-                            const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // title
-                                Text(
-                                  'Speaking Skills',
-                                  style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                // subtitle
-                                Text(
-                                  '15 Excerises',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ],
+                            ExerciseTile(
+                              icon: Icons.star,
+                              exerciseName: 'Writing Skills',
+                              numberOfExercises: 12,
+                              color: Colors.red,
                             ),
-                            const Icon(Icons.more_horiz),
+                            ExerciseTile(
+                              icon: Icons.view_list_outlined,
+                              exerciseName: 'Listening Skills',
+                              numberOfExercises: 12,
+                              color: Colors.green,
+                            ),
                           ],
                         ),
                       ),
